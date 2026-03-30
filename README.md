@@ -35,6 +35,22 @@ All public API calls use:
 
 Do not use server IPs or private service addresses.
 
+## Keyring Wallet Users
+
+If the user holds AXON in a keyring-based wallet, there are two practical ways to use Xenodia:
+
+1. Use the same wallet directly
+   - If the wallet setup can expose a standard EVM private key, use that wallet both for Xenodia login and for the AXON payment.
+2. Use a fresh transit wallet
+   - Create a new EVM wallet only for Xenodia.
+   - Move only the exact AXON top-up amount plus gas into it.
+   - Authenticate Xenodia with that new wallet and send AXON from that same new wallet.
+
+Important:
+- Xenodia ties AXON authentication and AXON payment to the same wallet identity.
+- If you use a transit wallet, the resulting credit lands on the Xenodia account for that transit wallet.
+- It does not automatically top up a different existing wallet-backed account.
+
 ## Core Rules
 
 - AXON top-up is available to `owner` and `agent` accounts, as long as the current account has a valid wallet context.
